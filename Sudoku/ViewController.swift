@@ -12,9 +12,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+      let matrix = createMap()
+
+        for i in 0...8{
+            print(matrix[i][0...8])
+            //    print(matrix[i])
+        }
+
+        
+        
     }
-
-
 }
 
