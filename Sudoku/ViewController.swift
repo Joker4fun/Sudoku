@@ -14,10 +14,10 @@ class ViewController: UIViewController {
         
         var matrix = createMap()
         var boxSize = 2
-        matrix[0][0] = 0
-        matrix[1][1] = 0
-        matrix[0][1] = 5
-  //      matrix[1][0] = 5
+        matrix[0][0] = 2
+        matrix[0][1] = 3
+        matrix[1][0] = 1
+        matrix[1][1] = 3
 
       //  matrix[0][0] = 5
 

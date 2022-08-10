@@ -72,16 +72,17 @@ func checkCol(Coord: (Int, Int), map: [[Int]]) -> Bool {
 
 
 func checkBox(Coord: (Int, Int), map: [[Int]], boxSize: Int) -> Bool {
-    let xS = (Coord.0 / boxSize) * boxSize
-    let yS = (Coord.1 / boxSize) * boxSize
-    let xE = xS + boxSize
-    let yE = yS + boxSize
-    var i = xS
-    var iC = yS
+    let xS = (Coord.0 / boxSize) * boxSize // 0
+    let yS = (Coord.1 / boxSize) * boxSize // 0
+    let xE = xS + boxSize // 2
+    let yE = yS + boxSize //2
+    var i = xS //0
+    var iC = yS //0
     
-    while i < xE {
-        while iC < yE {
-            if map[Coord.0][Coord.1] == map[i][iC] && Coord.0 != i && Coord.1 != iC {
+    while i < xE { // 0 < 2
+        iC = yS
+        while iC < yE { // 0 < 2
+            if map[Coord.0][Coord.1] == map[i][iC] && (Coord.0 != i || Coord.1 != iC) {
                 return false
             }
             iC += 1
