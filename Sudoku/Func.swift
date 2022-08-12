@@ -7,26 +7,61 @@
 
 import Foundation
 
-func createMap () -> [[Int]] {
+
+
+func createMap (boxsize: Int) -> [[Int]] {
     var matrix = [[Int]]()
-        for i in 0...3 {
+    let max = (boxsize * boxsize) - 1
+        for i in 0...max {
             matrix.append( [] )
-            for _ in 0...3 {
+            for _ in 0...max {
                 matrix[i].append(0)
             }
         }
-        return matrix
+    
+    func createGame (boxsize: Int) -> Bool {
+        printMat(boxsize: boxsize, map: matrix)
+
+        var max = boxsize * boxsize
+        var num = Int.random(in: 1...max)
+        var pos = checkZero(boxsize: boxsize, map: matrix)
+        if pos == nil {
+            return true
+        }
+        matrix[pos!.x][pos!.y] = num
+        while pos != nil {
+            var numIsVal = isValidate(map: matrix, coord: (pos!.x, pos!.y), boxsize: boxsize)
+            if numIsVal {
+                if createGame(boxsize: boxsize) {
+                    return true
+            }
+
+            }
+            matrix[pos!.x][pos!.y] = Int.random(in: 1...max)
+          /// print(matrix[pos!.x][pos!.y])
+
+        }
+        return false
+
+        }
+       
+
+    createGame(boxsize: boxsize)
+    
+   return matrix
 }
 
-func checkZero (map: [[Int]]) -> (x: Int, y: Int)? {
+func checkZero (boxsize: Int, map: [[Int]]) -> (x: Int, y: Int)? {
     var row = 0
     var colomn = 0
-    
-    while row < 8 {
-        while colomn < 8{
+    let max = boxsize * boxsize
+    while row < max {
+        colomn = 0
+        while colomn < max {
             if map[row][colomn] == 0 {
                 let x = row
                 let y = colomn
+                print(x,y)
                 return (x,y)
             }
             colomn += 1
@@ -90,4 +125,25 @@ func checkBox(Coord: (Int, Int), map: [[Int]], boxSize: Int) -> Bool {
         i += 1
     }
     return true
+}
+
+
+func isValidate (map: [[Int]], coord: (Int, Int), boxsize: Int) -> Bool {
+    if checkRow(Coord: (coord.0, coord.1), map: map) {
+        if checkCol(Coord: (coord.0, coord.1), map: map) {
+            if checkBox(Coord: (coord.0, coord.1), map: map, boxSize: boxsize) {
+                return true
+            }
+        }
+    }
+    return false
+}
+
+
+
+func printMat (boxsize: Int, map: [[Int]]) {
+    let a = (boxsize * boxsize) - 1
+    for i in 0...a{
+        print(map[i][0...a])
+    }
 }

@@ -11,25 +11,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var matrix = createMap()
-        var boxSize = 2
-        matrix[0][0] = 2
-        matrix[0][1] = 3
-        matrix[1][0] = 1
-        matrix[1][1] = 3
+        var boxSize = 3
+        let matrix = createMap(boxsize: boxSize)
 
-      //  matrix[0][0] = 5
-
-
-
-        for i in 0...3{
-            print(matrix[i][0...3])
-            //    print(matrix[i])
-        }
-
-        print(checkBox(Coord: (0, 1), map: matrix, boxSize: 2))
+      
         
     }
 }
 
+ 
