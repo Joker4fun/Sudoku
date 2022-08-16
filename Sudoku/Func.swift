@@ -11,44 +11,59 @@ import Foundation
 
 func createMap (boxsize: Int) -> [[Int]] {
     var matrix = [[Int]]()
+    var index = 0
     let max = (boxsize * boxsize) - 1
-        for i in 0...max {
-            matrix.append( [] )
-            for _ in 0...max {
-                matrix[i].append(0)
-            }
+    for i in 0...max {
+        matrix.append( [] )
+        for _ in 0...max {
+            matrix[i].append(0)
         }
+     
+    }
+
+//    while index < max + 1 {
+//        var num = Int.random(in: 1...9)
+//        if checkRow(Coord: (0, index), map: matrix) {
+//            matrix[0][index] = num
+//        }
+//        index += 1
+//    }
+   
     
     func createGame (boxsize: Int) -> Bool {
-        printMat(boxsize: boxsize, map: matrix)
+        //printMat(boxsize: boxsize, map: matrix)
+        var newMap = matrix
+        let max = boxsize * boxsize
+        var num: Int
+        for _ in 1...max {
+            //num = i
+            num = Int.random(in: 1...max)
 
-        var max = boxsize * boxsize
-        var num = Int.random(in: 1...max)
-        var pos = checkZero(boxsize: boxsize, map: matrix)
-        if pos == nil {
-            return true
-        }
-        matrix[pos!.x][pos!.y] = num
-        while pos != nil {
-            var numIsVal = isValidate(map: matrix, coord: (pos!.x, pos!.y), boxsize: boxsize)
+            let pos = checkZero(boxsize: boxsize, map: matrix)
+
+            if pos == nil {
+                return true
+            }
+            newMap[pos!.x][pos!.y] = num
+            let numIsVal = isValidate(map: newMap, coord: (pos!.x, pos!.y), boxsize: boxsize)
             if numIsVal {
+                let oldPos = pos
+                matrix[oldPos!.x][oldPos!.y] = num
                 if createGame(boxsize: boxsize) {
                     return true
+                }
+                matrix[oldPos!.x][oldPos!.y] = 0
             }
-
-            }
-            matrix[pos!.x][pos!.y] = Int.random(in: 1...max)
-          /// print(matrix[pos!.x][pos!.y])
-
         }
+      
         return false
-
-        }
-       
-
-    createGame(boxsize: boxsize)
+        
+    }
     
-   return matrix
+    
+    
+    createGame(boxsize: boxsize)
+    return matrix
 }
 
 func checkZero (boxsize: Int, map: [[Int]]) -> (x: Int, y: Int)? {
@@ -61,7 +76,7 @@ func checkZero (boxsize: Int, map: [[Int]]) -> (x: Int, y: Int)? {
             if map[row][colomn] == 0 {
                 let x = row
                 let y = colomn
-                print(x,y)
+                //print(x,y)
                 return (x,y)
             }
             colomn += 1
@@ -75,7 +90,7 @@ func checkRow(Coord: (Int, Int), map: [[Int]]) -> Bool {
     let row = Coord.0
     let currentPosition = Coord.1
     var colomn = Coord.1 - 1
-
+    
     while colomn != -1 {
         if currentPosition == 0 {
             return true
@@ -92,7 +107,7 @@ func checkCol(Coord: (Int, Int), map: [[Int]]) -> Bool {
     var row = Coord.0 - 1
     let currentPosition = Coord.0
     let colomn = Coord.1
-
+    
     while row != -1 {
         if currentPosition == 0 {
             return true

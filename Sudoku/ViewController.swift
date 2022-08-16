@@ -13,7 +13,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         var boxSize = 3
         let matrix = createMap(boxsize: boxSize)
-
+        printMat(boxsize: boxSize, map: matrix)
       
         
     }
