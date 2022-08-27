@@ -11,7 +11,6 @@ import Foundation
 
 func createMap (boxsize: Int) -> [[Int]] {
     var matrix = [[Int]]()
-    var index = 0
     let max = (boxsize * boxsize) - 1
     for i in 0...max {
         matrix.append( [] )
