@@ -11,7 +11,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+        view.backgroundColor = .green // green background
         var boxSize = 3
         let matrix = createMap(boxsize: boxSize)
         printMat(boxsize: boxSize, map: matrix)
