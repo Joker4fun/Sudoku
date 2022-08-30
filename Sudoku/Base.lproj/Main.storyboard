@@ -37,12 +37,6 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Продолжить"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvv-rP-Ak6">
-                                <rect key="frame" x="175" y="314" width="67" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nk0-7f-EbR">
                                 <rect key="frame" x="175" y="361" width="65.5" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -60,6 +54,7 @@
                             <constraint firstItem="IX2-4U-y5w" firstAttribute="centerX" secondItem="eqb-el-43t" secondAttribute="centerX" id="X1Q-Rs-rga"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="58v-5F-CsG"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -80,6 +75,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVN-8H-VzB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1110" y="-390"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="KYR-gJ-tr4">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="nJC-bk-29X" customClass="GameViewController" customModule="Sudoku" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nln-Zb-nMB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="lNk-EE-B9w"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Cut-Ra-ds0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8E2-yg-HGp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1881" y="-390"/>
         </scene>
     </scenes>
     <resources>

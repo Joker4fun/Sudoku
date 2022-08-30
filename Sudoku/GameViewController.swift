@@ -1,18 +1,16 @@
 //
-//  NewViewController.swift
+//  GameViewController.swift
 //  Sudoku
 //
-//  Created by Антон Казеннов on 27.08.2022.
+//  Created by Антон Казеннов on 29.08.2022.
 //
 
 import UIKit
 
-class NewViewController: UIViewController {
+class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemPink
-
 
         // Do any additional setup after loading the view.
     }
